@@ -1,0 +1,49 @@
+import tkinter as tk
+
+class TicTacToe:
+    def _init_(self, root):
+        self.root = root
+        self.root.title("15x15 TicTactToe")
+
+        # Initial game state
+        self.board = [[None for _ in range(15)] for _ in range(15)]
+        self.current_player = "X"
+        self.game_over = False
+
+        #Create buttons for the 15x15 grid
+        self.buttons = [
+            [tk.Button(self.root, text="", width=4, height=2, font=("Arial" . 14), command=for colin range(15)] for row in range(15)
+        ]
+
+        #Place buttons in the window grid
+        for row in range(15):
+            for col in range(15):
+                self.buttons[row][col].grid(row=row, column=col)
+
+    def make_move(self, row, col):
+        if self,game_over or self.board[row][col] is not None:
+            return #If cell is already filled or game is over, do nothing
+
+        #Mark the button with the current player`s symbol
+        self.board[row][col] = self.current_player
+        self.buttons[row][col].config(text=self.current_player)
+
+        #Check if someone has won
+        if self.check_winner(row, col):
+            self.game_over = True
+            tk.messsagebox.showinfo("Game Over" , f"Player {self.current_player} wins!")
+
+        #Switch players
+        self.current_player = "O" if self.current_player == "X" else "X"
+
+    def check_winner(self, row, col):
+        #Add logic to check if the current player won
+        return False # Temporary placeholder (we`ll implement this next)
+
+    def main():
+        root = tk.TK()
+        game = TicTacToe(root)
+        root.mainloop()
+
+    if_name_ == "_main_":
+        main()
